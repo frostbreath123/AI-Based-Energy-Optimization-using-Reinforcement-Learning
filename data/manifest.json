@@ -1,0 +1,160 @@
+{
+  "generated_by": "energyrl.data.manifest",
+  "year": 2019,
+  "datasets": [
+    {
+      "id": "ninja_pv",
+      "name": "Renewables.ninja hourly PV output (MERRA-2), 1 kWp reference system",
+      "class": "processed public data",
+      "publisher": "Renewables.ninja (Pfenninger & Staffell; Imperial College London / ETH Zurich)",
+      "url": "https://www.renewables.ninja/api/data/pv",
+      "retrieved": "2026-10-27",
+      "files": [
+        "pv_ninja_paris_2019.json"
+      ],
+      "sha256_16": [
+        "1e90e2a9176637c9"
+      ],
+      "units": "kW per kWp",
+      "resolution": "hourly (UTC)",
+      "geography": "Paris, France (lat 48.85, lon 2.35), tilt 35 deg, south, losses 10%",
+      "license": "Renewables.ninja states CC BY-NC 4.0 (non-commercial, attribution); verify at https://www.renewables.ninja/about. Anonymous API access, no account created.",
+      "preprocessing": "Parsed from the JSON API response, clipped to [0,1] kW/kWp, converted from UTC to Europe/Paris local time.",
+      "role": "Actual on-site PV generation = capacity factor x installed kWp x scenario scale."
+    },
+    {
+      "id": "elmas",
+      "name": "ELMAS: hourly electrical load profiles of French industrial and tertiary sectors (18 clusters, 2018)",
+      "class": "processed public data",
+      "publisher": "Bellinguer, Girard, Bocquet, Chevalier (MINES Paris - PSL / Enedis); Scientific Data 10, 2023",
+      "url": "https://doi.org/10.1038/s41597-023-02542-z (data: https://doi.org/10.6084/m9.figshare.23889780.v1)",
+      "retrieved": "unknown (cached)",
+      "files": [
+        "Time_series_18_clusters.csv"
+      ],
+      "sha256_16": [
+        "30cb22c2707aac3a"
+      ],
+      "units": "average energy per hour per cluster (normalised to mean 1 here: only the SHAPE is used)",
+      "resolution": "hourly, one year (2018), averaged over 55,730 customers",
+      "geography": "France (Enedis network)",
+      "license": "CC BY 4.0 (Figshare record)",
+      "preprocessing": "Decimal commas parsed; each cluster divided by its annual mean; timestamps shifted by 364 days so 2018 weekdays/seasons align with the 2019 calendar; clusters [1, 10] used for training scenarios, [14, 11] held out for an OOD family.",
+      "role": "Shape of the plant's inflexible load (base_kw_mean x shape). Absolute plant size is an assumption."
+    },
+    {
+      "id": "ec_price",
+      "name": "Day-ahead spot price, bidding zone FR",
+      "class": "processed public data",
+      "publisher": "Fraunhofer ISE Energy-Charts API; data from Bundesnetzagentur | SMARD.de",
+      "url": "https://api.energy-charts.info/price?bzn=FR",
+      "retrieved": "2026-10-27",
+      "files": [
+        "prices_fr_2019.json"
+      ],
+      "sha256_16": [
+        "b37f68df43298b15"
+      ],
+      "units": "EUR/MWh (converted to EUR/kWh)",
+      "resolution": "hourly",
+      "geography": "France bidding zone",
+      "license": "CC BY 4.0 (stated in the API response: 'CC BY 4.0 from Bundesnetzagentur | SMARD.de')",
+      "preprocessing": "Resampled to hourly mean, /1000, local time. Negative prices kept in the spot series; the customer tariff is floored at 0.",
+      "role": "Wholesale component of the tariff (tariff = spot x scale + network adder + levies)."
+    },
+    {
+      "id": "ec_power",
+      "name": "Public net electricity generation by source, France",
+      "class": "derived from public data + literature factors",
+      "publisher": "Fraunhofer ISE Energy-Charts API (ENTSO-E based)",
+      "url": "https://api.energy-charts.info/public_power?country=fr",
+      "retrieved": "2026-10-27",
+      "files": [
+        "public_power_fr_2019_01.json",
+        "public_power_fr_2019_02.json",
+        "public_power_fr_2019_03.json",
+        "public_power_fr_2019_04.json",
+        "public_power_fr_2019_05.json",
+        "public_power_fr_2019_06.json",
+        "public_power_fr_2019_07.json",
+        "public_power_fr_2019_08.json",
+        "public_power_fr_2019_09.json",
+        "public_power_fr_2019_10.json",
+        "public_power_fr_2019_11.json",
+        "public_power_fr_2019_12.json"
+      ],
+      "sha256_16": [
+        "2463d41eb4ebea4c",
+        "c24556924efb127d",
+        "d5e692f5e92a01d4",
+        "33d57fe4f7bb94e7",
+        "6fdd437badc0621f",
+        "b4673b19e05f01ff",
+        "db419e379474353d",
+        "49aa004a922818fe",
+        "fd8a4089577d98cd",
+        "f948315f13ec0734",
+        "dd13977220ada0f2",
+        "fb3431c3055011b3"
+      ],
+      "units": "MW per source type",
+      "resolution": "hourly/15 min, resampled to hourly mean",
+      "geography": "France",
+      "license": "Energy-Charts states CC BY 4.0 for its data (the response carries no licence field; verify at https://www.energy-charts.info).",
+      "preprocessing": "Per-source MW averaged hourly; null/negative -> 0; carbon intensity = sum(generation x emission factor) / sum(generation). Imports/exports and pumped-storage charging excluded (production-based).",
+      "role": "Time-varying grid carbon intensity (gCO2e/kWh); France is nuclear-dominated so the level is low (about 54 g/kWh mean)."
+    },
+    {
+      "id": "emission_factors",
+      "name": "Emission factors per generation technology",
+      "class": "literature constants",
+      "publisher": "IPCC AR5 WGIII (2014) Annex III, Table A.III.2 (median lifecycle): coal 820, gas CCGT 490, biomass 230, geothermal 38, hydro 24, nuclear 12, solar PV utility 48, onshore wind 11, offshore wind 12 gCO2e/kWh",
+      "url": "https://www.ipcc.ch/report/ar5/wg3/",
+      "retrieved": "n/a",
+      "files": [],
+      "units": "gCO2e/kWh",
+      "resolution": "constant",
+      "geography": "global medians",
+      "license": "IPCC reports: free for non-commercial use with citation",
+      "preprocessing": "Lignite (1000), oil (650), coal-derived gas (600), waste (400), others (500) are ANALYST ASSUMPTIONS (not IPCC values) - see config/default.yaml.",
+      "role": "Convert the generation mix into carbon intensity."
+    },
+    {
+      "id": "turpe7",
+      "name": "TURPE 7 HTA network tariff, variable energy component (grid of 1 Aug 2025)",
+      "class": "published regulated tariff (transcribed by hand into config/default.yaml)",
+      "publisher": "Commission de regulation de l'energie (CRE), deliberation no 2025-40 of 4 Feb 2025",
+      "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/2025/250204_2025-40_TURPE_7_HTA-BT.pdf",
+      "retrieved": "2026-10-28",
+      "files": [
+        "CRE_2025-40_TURPE7_HTA-BT.pdf"
+      ],
+      "sha256_16": [
+        "a148c5d8ad2e75f5"
+      ],
+      "units": "c EUR/kWh for the five ranges PTE, HPH, HCH, HPE, HCE; options CU (short) and LU (long utilisation)",
+      "resolution": "five time ranges (fixed peak Dec-Feb; high season Nov-Mar, low season Apr-Oct; full vs off-peak hours)",
+      "geography": "France, medium-voltage (HTA) grid users",
+      "license": "Public regulatory document (CRE); cite the deliberation",
+      "preprocessing": "Values copied from the 'Grilles simplifiees de la composante de soutirage au 1er aout 2025' table (CU 5.85/4.31/2.03/1.03/0.71, LU 2.71/2.14/1.50/0.94/0.69 c/kWh). Off-peak placement A = 22-06 h and Sundays (CRE text); placement B = low-season off-peak 02-06 h + 11-15 h (derived from CRE Table 47 'hours to favour' 02-06 h and 11-17 h; 8 h/day). Exact fixed-peak hours 09-11 h and 18-20 h are an ASSUMPTION inside the CRE windows (08-12 h, 17-21 h). The 2026 +3.04 % indexation and the power (EUR/kW/yr) components are not applied, except that the CU power term 14.70 EUR/kW/yr/365 is used as the daily demand charge. Supply margin, accise and CTA (0.03 EUR/kWh) are assumed, not sourced.",
+      "role": "Network part of the electricity price: gives the peak / intermediate / off-peak structure. NOTE: tariff year (2025-26) differs from the market data year (2019); the wholesale price is used as a level-shifting signal."
+    },
+    {
+      "id": "synthetic_jobs",
+      "name": "Production jobs, deadlines, forecast errors, PV drops, plant size",
+      "class": "SYNTHETIC (generated)",
+      "publisher": "this project",
+      "url": "-",
+      "retrieved": "n/a",
+      "files": [],
+      "units": "kW, hours",
+      "resolution": "hourly",
+      "geography": "stylised manufacturing site",
+      "license": "project code",
+      "preprocessing": "Generated by energyrl/scenarios.py from seeded random draws; ELMAS gives only the base-load shape, not job schedules.",
+      "role": "Flexible loads: job power, durations, release times, deadlines."
+    }
+  ],
+  "processed_file": "data\\processed\\france_2019_hourly.csv",
+  "processed_sha256_16": "262709cef82950f1"
+}

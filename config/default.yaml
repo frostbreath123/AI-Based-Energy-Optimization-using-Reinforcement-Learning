@@ -1,0 +1,128 @@
+# Central configuration. Every tunable constant of the project lives here.
+project:
+  seed: 42
+
+data:
+  year: 2019                       # market, PV and carbon data year (Renewables.ninja anonymous API starts at 2019)
+  load_year: 2018                  # ELMAS industrial load profiles year; shifted by 364 days to keep weekday alignment
+  location: {name: "Paris, France", lat: 48.85, lon: 2.35}
+  bidding_zone: "FR"
+  country: "fr"
+  pv: {dataset: "merra2", system_loss: 0.10, tilt: 35, azim: 180}
+  timezone: "Europe/Paris"
+  # ELMAS clusters (MV = medium voltage customers). Training uses cluster 1 (largest share of manufacturing energy,
+  # flat near-continuous profile) and 10; clusters 14 and 11 are held out for an OOD family.
+  load_clusters_train: [1, 10]
+  load_clusters_ood: [14, 11]
+  # Chronological, non-overlapping date pools (local calendar days of data.year)
+  train_months: [3, 4, 5, 6, 7, 8, 9, 10, 11]   # in-distribution season (spring..autumn)
+  ood_season_months: [12, 1, 2]                  # winter: never used for training/validation
+  split_fractions: {train: 0.70, val: 0.15, test: 0.15}
+  # Emission factors, gCO2eq/kWh (see docs/DATA_SOURCES.md for provenance of each number)
+  emission_factors:
+    "Fossil brown coal / lignite": 1000
+    "Fossil hard coal": 820
+    "Fossil gas": 490
+    "Fossil oil": 650
+    "Fossil coal-derived gas": 600
+    "Biomass": 230
+    "Waste": 400
+    "Nuclear": 12
+    "Hydro Run-of-River": 24
+    "Hydro water reservoir": 24
+    "Hydro pumped storage": 24
+    "Geothermal": 38
+    "Wind onshore": 11
+    "Wind offshore": 12
+    "Solar": 48
+    "Others": 500
+
+site:
+  horizon_hours: 24
+  max_jobs: 8
+  grid_import_limit_kw: 1800
+  pv_kwp: 900
+  feed_in_eur_kwh: 0.05
+  demand_charge_eur_kw_day: 0.0403   # TURPE 7 HTA CU power term 14.70 EUR/kW/yr / 365 (approximation of the annual subscribed-power charge)
+  base_kw_mean: 250                # mean inflexible load (kW); hourly shape comes from ELMAS
+  battery: {capacity_kwh: 1200, power_kw: 400, eff_charge: 0.95, eff_discharge: 0.95,
+            soc_init: 0.5, soc_min: 0.10, soc_max: 0.95}
+  battery_levels: [-1.0, -0.5, 0.0, 0.5, 1.0]    # fraction of power_kw (negative = discharge)
+
+tariff:
+  # Network charge = TURPE 7, HTA domain, variable energy component (c EUR/kWh), grid valid 1 Aug 2025.
+  # Source: CRE deliberation 2025-40 (4 Feb 2025), "Grilles simplifiees de la composante de soutirage" (data/raw/tariff/).
+  # Ranges: PTE = fixed peak, HPH/HCH = full/off-peak hours in high season (Nov-Mar), HPE/HCE = same in low season (Apr-Oct).
+  # Options: CU = short utilisation, LU = long utilisation.
+  turpe7_hta_c_eur_kwh:
+    CU: {PTE: 5.85, HPH: 4.31, HCH: 2.03, HPE: 1.03, HCE: 0.71}
+    LU: {PTE: 2.71, HPH: 2.14, HCH: 1.50, HPE: 0.94, HCE: 0.69}
+  fixed_adder_eur_kwh: 0.03       # supply margin, accise, CTA: ASSUMED (not sourced)
+  high_season_months: [11, 12, 1, 2, 3]
+  peak_months: [12, 1, 2]
+  # Hour placement (the CRE defines windows; the grid operator picks exact hours: the exact PTE hours below are an assumption
+  # inside the CRE windows 08-12 h and 17-21 h).
+  peak_hours: [[9, 11], [18, 20]]            # Mon-Sat, Dec-Feb
+  # Placement A (training): the long-standing HTA rule, off-peak 22-06 h Mon-Sat, all day Sunday (CRE doc, Tableau 46 + text).
+  placement_A: {offpeak: [[22, 24], [0, 6]], sunday_offpeak: true}
+  # Placement B (held out, OOD): the off-peak hours the CRE wants to favour in the low season to follow solar
+  # (2-6 h and 11-17 h, CRE Tableau 47); 8 h/day modelled as 2-6 h and 11-15 h. High season keeps 22-06 h.
+  placement_B: {offpeak_low_season: [[2, 6], [11, 15]], offpeak_high_season: [[22, 24], [0, 6]], sunday_offpeak: true}
+
+observation:
+  price_lookahead: 24     # tariffs are known day-ahead; same information the rule-based baseline uses
+  carbon_lookahead: 8
+  pv_lookahead: 12
+  price_norm_eur_kwh: 0.5
+  carbon_norm_g_kwh: 600
+
+reward:
+  scale: 10.0
+  w_cost: 1.0          # per 100% of the naive daily electricity bill
+  w_co2: 0.5           # per 100% of the naive daily emissions
+  w_late: 0.15         # per late job-hour (units of naive daily bill)
+  w_miss: 0.30         # per unfinished job at end of day (+ proportional to remaining work)
+  w_shed: 0.10         # per capacity-shed event (physical limit hit)
+  w_invalid: 0.01      # per invalid request (ineligible job, empty/full battery)
+
+train_dist:             # in-distribution generator ranges
+  price_scale: [0.5, 2.0]
+  price_spike: [1.0, 1.6]     # evening (17-21 h) multiplier on the spot price
+  pv_scale: [0.5, 1.3]
+  forecast_sd: [0.10, 0.25]
+  drop_prob: 0.10
+  drop_hours: [1, 2]
+  drop_depth: [0.2, 0.5]
+  n_jobs: [4, 6]
+  power_scale: [0.8, 1.2]
+  slack_mean: [2.0, 6.0]
+  base_scale: [0.9, 1.1]
+  tariff: "A"               # off-peak placement A; options below are drawn per scenario
+  tariff_options: ["CU", "LU"]
+  # Held-out joint corner: "low PV" (pv_scale < pv_low) with "tight" deadlines (slack_mean < slack_tight)
+  exclude_pv_low: 0.75
+  exclude_slack_tight: 3.5
+
+training:
+  algorithm: "PPO"
+  total_timesteps: 1000000
+  n_envs: 8
+  seeds: [0, 1, 2]
+  learning_rate: 0.0003
+  lr_schedule: linear      # linear decay to 0 (selected on validation days)
+  n_steps: 384
+  batch_size: 512
+  n_epochs: 10
+  gamma: 0.995
+  gae_lambda: 0.95
+  ent_coef: 0.005
+  clip_range: 0.2
+  net_arch: [256, 256]
+  checkpoint_every: 100000
+  eval_every: 50000
+  eval_episodes: 30
+
+evaluation:
+  episodes_id: 60
+  episodes_ood: 30
+  eval_seed: 12345

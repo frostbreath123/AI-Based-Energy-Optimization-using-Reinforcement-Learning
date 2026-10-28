@@ -1,0 +1,21 @@
+{
+  "families": [
+    "in_distribution",
+    "price_spike",
+    "tariff_restructure",
+    "low_renewables",
+    "renewable_drop",
+    "production_surge",
+    "tight_deadlines",
+    "combo_familiar",
+    "compound_shock",
+    "winter_season"
+  ],
+  "policies": [
+    "Naive schedule",
+    "RL agent (seed 0)",
+    "RL agent (seed 1)",
+    "RL agent (seed 2)",
+    "Rule-based"
+  ]
+}

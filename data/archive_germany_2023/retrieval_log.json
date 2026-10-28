@@ -1,0 +1,27 @@
+{
+  "pvgis": {
+    "file": "pv_pvgis_berlin_2023.csv",
+    "retrieved": "2026-10-27"
+  },
+  "prices": {
+    "file": "prices_de_lu_2023.json",
+    "retrieved": "2026-10-27"
+  },
+  "public_power": {
+    "files": [
+      "public_power_de_2023_01.json",
+      "public_power_de_2023_02.json",
+      "public_power_de_2023_03.json",
+      "public_power_de_2023_04.json",
+      "public_power_de_2023_05.json",
+      "public_power_de_2023_06.json",
+      "public_power_de_2023_07.json",
+      "public_power_de_2023_08.json",
+      "public_power_de_2023_09.json",
+      "public_power_de_2023_10.json",
+      "public_power_de_2023_11.json",
+      "public_power_de_2023_12.json"
+    ],
+    "retrieved": "2026-10-27"
+  }
+}

@@ -1,0 +1,21 @@
+family,policy,baseline,metric,pct,pct_std,wins
+in_distribution,RL agent (PPO),Naive schedule,cost_eur,6.173185050439923,10.671605264218762,0.9166666666666666
+in_distribution,Rule-based,Naive schedule,cost_eur,8.163409546343347,10.24345773432695,0.9333333333333333
+price_spike,RL agent (PPO),Naive schedule,cost_eur,22.952775529296122,10.038488458546434,1.0
+price_spike,Rule-based,Naive schedule,cost_eur,22.260414444391962,9.212224168298345,1.0
+tariff_restructure,RL agent (PPO),Naive schedule,cost_eur,18.675569616567767,9.6608899526843,1.0
+tariff_restructure,Rule-based,Naive schedule,cost_eur,23.671996714928024,9.79251817075341,1.0
+low_renewables,RL agent (PPO),Naive schedule,cost_eur,4.639833560855711,8.447407099156543,0.7666666666666667
+low_renewables,Rule-based,Naive schedule,cost_eur,9.109388305429523,8.692179711152242,1.0
+renewable_drop,RL agent (PPO),Naive schedule,cost_eur,7.625649398311641,8.935261650477074,0.9333333333333333
+renewable_drop,Rule-based,Naive schedule,cost_eur,8.470514526696803,8.495786594528315,0.9
+production_surge,RL agent (PPO),Naive schedule,cost_eur,1.9992270102829002,3.8828152673831267,0.6666666666666666
+production_surge,Rule-based,Naive schedule,cost_eur,12.140499362630742,6.8841247415282005,1.0
+tight_deadlines,RL agent (PPO),Naive schedule,cost_eur,5.187373238729864,4.344757223580558,0.9333333333333333
+tight_deadlines,Rule-based,Naive schedule,cost_eur,7.025302229291819,5.943432632418033,0.9
+combo_familiar,RL agent (PPO),Naive schedule,cost_eur,3.775598920164236,7.407160157865652,0.7333333333333333
+combo_familiar,Rule-based,Naive schedule,cost_eur,7.4973646120048425,5.889269050960988,1.0
+compound_shock,RL agent (PPO),Naive schedule,cost_eur,26.966320939023937,10.7581948501268,1.0
+compound_shock,Rule-based,Naive schedule,cost_eur,26.208486510928342,9.499669398888997,1.0
+winter_season,RL agent (PPO),Naive schedule,cost_eur,4.728252757154916,3.7177382849068663,0.9
+winter_season,Rule-based,Naive schedule,cost_eur,9.292219491407682,5.0011130756867574,0.9333333333333333

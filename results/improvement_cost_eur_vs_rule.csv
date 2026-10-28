@@ -1,0 +1,23 @@
+family,policy,baseline,metric,pct,pct_std,wins
+in_distribution,Naive schedule,Rule-based,cost_eur,-8.505438553428668,12.750117454484378,0.1
+in_distribution,RL agent (PPO),Rule-based,cost_eur,0.7353409826503676,4.434039004244192,0.6833333333333333
+price_spike,Naive schedule,Rule-based,cost_eur,-33.333398923092616,27.999995806483213,0.0
+price_spike,RL agent (PPO),Rule-based,cost_eur,2.4439385518401857,9.593959125898518,0.6
+tariff_restructure,Naive schedule,Rule-based,cost_eur,-7.764110737919427,8.808345386436505,0.13333333333333333
+tariff_restructure,RL agent (PPO),Rule-based,cost_eur,1.4795796740152967,3.088889067869206,0.7
+low_renewables,Naive schedule,Rule-based,cost_eur,-5.624514619042276,6.048558097547875,0.23333333333333334
+low_renewables,RL agent (PPO),Rule-based,cost_eur,0.572072104833099,2.204648694241848,0.7
+renewable_drop,Naive schedule,Rule-based,cost_eur,-7.06388762415191,6.684925620652071,0.1
+renewable_drop,RL agent (PPO),Rule-based,cost_eur,1.2482025617715387,3.3489833048897335,0.8
+production_surge,Naive schedule,Rule-based,cost_eur,-10.659362465280475,8.405465094001348,0.06666666666666667
+production_surge,RL agent (PPO),Rule-based,cost_eur,-0.025328222967657688,6.386536784122895,0.6666666666666666
+tight_deadlines,Naive schedule,Rule-based,cost_eur,-8.791029399220118,6.22884098411407,0.0
+tight_deadlines,RL agent (PPO),Rule-based,cost_eur,1.0670283777201028,3.162367723330064,0.7666666666666667
+combo_familiar,Naive schedule,Rule-based,cost_eur,-6.20403422279312,5.940143693733822,0.03333333333333333
+combo_familiar,RL agent (PPO),Rule-based,cost_eur,1.2960330363440353,2.251204603859945,0.7666666666666667
+compound_shock,Naive schedule,Rule-based,cost_eur,-23.76214921349429,15.264102572266426,0.03333333333333333
+compound_shock,RL agent (PPO),Rule-based,cost_eur,5.094499784195483,8.435099231386168,0.8
+unseen_industry,Naive schedule,Rule-based,cost_eur,-6.340591031477039,6.344057709433846,0.13333333333333333
+unseen_industry,RL agent (PPO),Rule-based,cost_eur,1.5773240885412765,3.382186969972344,0.7666666666666667
+winter_season,Naive schedule,Rule-based,cost_eur,-8.698278323672447,6.969830153554472,0.06666666666666667
+winter_season,RL agent (PPO),Rule-based,cost_eur,-0.3528085763758293,3.9286778595438543,0.5333333333333333

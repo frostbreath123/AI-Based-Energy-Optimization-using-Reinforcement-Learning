@@ -1,0 +1,21 @@
+family,policy,baseline,metric,pct,pct_std,wins
+in_distribution,RL agent (PPO),Naive schedule,co2_kg,11.325668248896248,11.59969950433532,0.9833333333333333
+in_distribution,Rule-based,Naive schedule,co2_kg,4.190206061684975,12.562133595630982,0.75
+price_spike,RL agent (PPO),Naive schedule,co2_kg,12.7005220653303,8.314060304195332,1.0
+price_spike,Rule-based,Naive schedule,co2_kg,8.635644968667755,9.508340560549415,0.9666666666666667
+tariff_restructure,RL agent (PPO),Naive schedule,co2_kg,14.727300505120544,9.588037786470931,1.0
+tariff_restructure,Rule-based,Naive schedule,co2_kg,12.883702668630615,9.09647026515173,0.9666666666666667
+low_renewables,RL agent (PPO),Naive schedule,co2_kg,7.709591141507577,6.5389948303786625,0.9666666666666667
+low_renewables,Rule-based,Naive schedule,co2_kg,0.168994099714459,10.094500066175044,0.5
+renewable_drop,RL agent (PPO),Naive schedule,co2_kg,10.731068805051835,7.51873978363058,1.0
+renewable_drop,Rule-based,Naive schedule,co2_kg,6.396890344176409,8.207010089182111,0.8666666666666667
+production_surge,RL agent (PPO),Naive schedule,co2_kg,12.819770190355207,4.547709951287227,1.0
+production_surge,Rule-based,Naive schedule,co2_kg,9.792394173146256,7.617651504312438,0.9
+tight_deadlines,RL agent (PPO),Naive schedule,co2_kg,12.378302886077785,6.355124198343202,1.0
+tight_deadlines,Rule-based,Naive schedule,co2_kg,3.801161025824229,6.22950412791769,0.7666666666666667
+combo_familiar,RL agent (PPO),Naive schedule,co2_kg,8.244705957157784,9.927230077984165,1.0
+combo_familiar,Rule-based,Naive schedule,co2_kg,1.5618076246244117,12.238524322521911,0.6
+compound_shock,RL agent (PPO),Naive schedule,co2_kg,10.622306481583532,4.7923870427004145,1.0
+compound_shock,Rule-based,Naive schedule,co2_kg,6.389758406745171,4.746958001229184,0.9666666666666667
+winter_season,RL agent (PPO),Naive schedule,co2_kg,5.101066033100499,3.956186700562704,0.9666666666666667
+winter_season,Rule-based,Naive schedule,co2_kg,2.2085698813507526,3.57608159149656,0.7666666666666667

@@ -1,0 +1,9 @@
+  [val @ 50000] reward -14.78 cost saving 2.3% co2 18.0% completion 1.000
+  [val @ 100000] reward -14.68 cost saving 2.9% co2 19.3% completion 1.000
+  [val @ 150000] reward -14.30 cost saving 2.7% co2 19.4% completion 1.000
+  [val @ 200000] reward -14.14 cost saving 3.2% co2 19.4% completion 1.000
+  [val @ 250000] reward -13.87 cost saving 3.6% co2 19.6% completion 1.000
+  [val @ 300000] reward -13.91 cost saving 3.7% co2 19.4% completion 1.000
+  [val @ 350000] reward -14.08 cost saving 2.5% co2 18.9% completion 1.000
+  [val @ 400000] reward -14.02 cost saving 2.9% co2 18.5% completion 1.000
+[train] sens_carbon_heavy seed 0: 624s -> C:\Users\Admin\Desktop\APPLIED_AI\models\sens_carbon_heavy_seed0

@@ -1,0 +1,9 @@
+  [val @ 50000] reward -14.07 cost saving 5.1% co2 7.0% completion 1.000
+  [val @ 100000] reward -13.58 cost saving 8.2% co2 9.7% completion 1.000
+  [val @ 150000] reward -13.47 cost saving 8.7% co2 10.7% completion 1.000
+  [val @ 200000] reward -13.33 cost saving 9.7% co2 12.2% completion 1.000
+  [val @ 250000] reward -13.22 cost saving 10.1% co2 13.2% completion 1.000
+  [val @ 300000] reward -13.25 cost saving 10.6% co2 12.0% completion 1.000
+  [val @ 350000] reward -13.42 cost saving 9.7% co2 12.2% completion 1.000
+  [val @ 400000] reward -13.42 cost saving 11.2% co2 12.5% completion 0.993
+[train] sens_cost_only seed 0: 626s -> C:\Users\Admin\Desktop\APPLIED_AI\models\sens_cost_only_seed0

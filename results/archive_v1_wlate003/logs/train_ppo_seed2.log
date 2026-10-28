@@ -1,0 +1,13 @@
+  [val @ 50000] reward -14.59 cost saving 3.8% co2 10.5% completion 1.000
+  [val @ 100000] reward -13.58 cost saving 5.8% co2 14.1% completion 1.000
+  [val @ 150000] reward -13.65 cost saving 6.0% co2 13.9% completion 1.000
+  [val @ 200000] reward -13.56 cost saving 7.2% co2 14.2% completion 1.000
+  [val @ 250000] reward -13.48 cost saving 7.4% co2 14.7% completion 1.000
+  [val @ 300000] reward -13.41 cost saving 8.3% co2 14.6% completion 1.000
+  [val @ 350000] reward -13.50 cost saving 8.1% co2 14.6% completion 1.000
+  [val @ 400000] reward -13.40 cost saving 8.6% co2 13.8% completion 1.000
+  [val @ 450000] reward -13.37 cost saving 8.3% co2 14.2% completion 1.000
+  [val @ 500000] reward -13.37 cost saving 7.9% co2 14.4% completion 1.000
+  [val @ 550000] reward -13.37 cost saving 8.6% co2 14.4% completion 1.000
+  [val @ 600000] reward -13.45 cost saving 8.0% co2 13.7% completion 1.000
+[train] ppo seed 2: 897s -> C:\Users\Admin\Desktop\APPLIED_AI\models\ppo_seed2

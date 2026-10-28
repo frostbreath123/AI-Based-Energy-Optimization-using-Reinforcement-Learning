@@ -1,0 +1,135 @@
+{
+  "generated_by": "energyrl.data.manifest",
+  "year": 2023,
+  "datasets": [
+    {
+      "id": "pvgis_pv",
+      "name": "PVGIS hourly PV output (SARAH3), 1 kWp reference system",
+      "class": "processed public data",
+      "publisher": "European Commission, Joint Research Centre (PVGIS v5.3)",
+      "url": "https://re.jrc.ec.europa.eu/api/v5_3/seriescalc",
+      "retrieved": "2026-10-27",
+      "files": [
+        "pv_pvgis_berlin_2023.csv"
+      ],
+      "sha256_16": [
+        "815c0c46fdc60947"
+      ],
+      "units": "W per kWp (converted to kW per kWp); also T2m in deg C",
+      "resolution": "hourly (UTC, minute 11)",
+      "geography": "Berlin, Germany (lat 52.52, lon 13.405)",
+      "license": "PVGIS data free to use with attribution (c) European Union, JRC; verify terms at https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en",
+      "preprocessing": "UTC stamps floored to the hour, W->kW, clipped to [0,1] kW/kWp, converted to Europe/Berlin local time.",
+      "role": "Actual on-site PV generation profile = capacity factor x installed kWp x scenario scale."
+    },
+    {
+      "id": "ec_price",
+      "name": "Day-ahead spot price, bidding zone DE-LU",
+      "class": "processed public data",
+      "publisher": "Fraunhofer ISE Energy-Charts API; data from Bundesnetzagentur | SMARD.de",
+      "url": "https://api.energy-charts.info/price?bzn=DE-LU",
+      "retrieved": "2026-10-27",
+      "files": [
+        "prices_de_lu_2023.json"
+      ],
+      "sha256_16": [
+        "3f8b1d9620a02a83"
+      ],
+      "units": "EUR/MWh (converted to EUR/kWh)",
+      "resolution": "hourly",
+      "geography": "Germany-Luxembourg bidding zone",
+      "license": "CC BY 4.0 (stated in the API response: 'CC BY 4.0 from Bundesnetzagentur | SMARD.de')",
+      "preprocessing": "Resampled to hourly mean, /1000, local time. Negative prices kept in the spot series; the customer tariff is floored at 0.",
+      "role": "Wholesale component of the electricity tariff (the tariff = spot x scale + network adder + levies)."
+    },
+    {
+      "id": "ec_power",
+      "name": "Public net electricity generation by source, Germany",
+      "class": "derived from public data + literature factors",
+      "publisher": "Fraunhofer ISE Energy-Charts API (Bundesnetzagentur / ENTSO-E based)",
+      "url": "https://api.energy-charts.info/public_power?country=de",
+      "retrieved": "2026-10-27",
+      "files": [
+        "public_power_de_2023_01.json",
+        "public_power_de_2023_02.json",
+        "public_power_de_2023_03.json",
+        "public_power_de_2023_04.json",
+        "public_power_de_2023_05.json",
+        "public_power_de_2023_06.json",
+        "public_power_de_2023_07.json",
+        "public_power_de_2023_08.json",
+        "public_power_de_2023_09.json",
+        "public_power_de_2023_10.json",
+        "public_power_de_2023_11.json",
+        "public_power_de_2023_12.json"
+      ],
+      "sha256_16": [
+        "057bfe226776ed9c",
+        "eb4f83f1caf6607d",
+        "ff5ef4bb9ceb5e0a",
+        "1557e387bec47b8c",
+        "022ced95c0736e5e",
+        "9fde34702d20afc6",
+        "a3bf2ca680085789",
+        "bd8ca274f0e4cea1",
+        "b3a521aa7932fdcb",
+        "eefd94ea7c23d75e",
+        "4405310e6de7c149",
+        "e8108189d0d490ef"
+      ],
+      "units": "MW per source type",
+      "resolution": "15 min, resampled to hourly mean",
+      "geography": "Germany",
+      "license": "Energy-Charts states CC BY 4.0 for its data (the API response itself carries no licence field; verify at https://www.energy-charts.info).",
+      "preprocessing": "Per-source MW averaged hourly; null/negative -> 0; carbon intensity = sum(generation x emission factor) / sum(generation). Imports/exports and pumped-storage charging excluded (production-based intensity).",
+      "role": "Time-varying grid carbon intensity (gCO2e/kWh)."
+    },
+    {
+      "id": "emission_factors",
+      "name": "Emission factors per generation technology",
+      "class": "literature constants",
+      "publisher": "IPCC AR5 WGIII (2014) Annex III, Table A.III.2 (median lifecycle): coal 820, gas CCGT 490, biomass 230, geothermal 38, hydro 24, nuclear 12, solar PV utility 48, onshore wind 11, offshore wind 12 gCO2e/kWh",
+      "url": "https://www.ipcc.ch/report/ar5/wg3/",
+      "retrieved": "n/a",
+      "files": [],
+      "units": "gCO2e/kWh",
+      "resolution": "constant",
+      "geography": "global medians",
+      "license": "IPCC reports: free for non-commercial use with citation",
+      "preprocessing": "Lignite (1000), oil (650), coal-derived gas (600), waste (400), others (500) are ANALYST ASSUMPTIONS (not IPCC values) - see config/default.yaml.",
+      "role": "Convert the generation mix into carbon intensity."
+    },
+    {
+      "id": "synthetic_tariff",
+      "name": "Time-of-use network charge + levies",
+      "class": "SYNTHETIC (generated)",
+      "publisher": "this project",
+      "url": "-",
+      "retrieved": "n/a",
+      "files": [],
+      "units": "EUR/kWh",
+      "resolution": "hourly",
+      "geography": "stylised German industrial customer",
+      "license": "project code (MIT-style, educational)",
+      "preprocessing": "Schedules A (training) and B (OOD) defined in config/default.yaml; they mimic peak/shoulder/off-peak structures but are not a real utility tariff.",
+      "role": "Peak / intermediate / off-peak structure added to the real spot price."
+    },
+    {
+      "id": "synthetic_load_jobs",
+      "name": "Industrial base load, production jobs, deadlines, forecast errors, PV drops",
+      "class": "SYNTHETIC (generated)",
+      "publisher": "this project",
+      "url": "-",
+      "retrieved": "n/a",
+      "files": [],
+      "units": "kW, hours",
+      "resolution": "hourly",
+      "geography": "stylised manufacturing site",
+      "license": "project code",
+      "preprocessing": "Generated by energyrl/scenarios.py from seeded random draws; no real plant data was used (none freely available at suitable resolution).",
+      "role": "Flexible/inflexible loads, job power, durations, release times, deadlines."
+    }
+  ],
+  "processed_file": "data\\processed\\germany_2023_hourly.csv",
+  "processed_sha256_16": "c9b222f746168f97"
+}

@@ -1,0 +1,23 @@
+family,policy,baseline,metric,pct,pct_std,wins
+in_distribution,RL agent (PPO),Naive schedule,co2_kg,10.036030346834213,9.01821949012315,1.0
+in_distribution,Rule-based,Naive schedule,co2_kg,3.5750192209724196,7.950792088351514,0.7
+price_spike,RL agent (PPO),Naive schedule,co2_kg,9.702190519720732,7.74404449187776,1.0
+price_spike,Rule-based,Naive schedule,co2_kg,5.6235834366066495,6.588449089840511,0.9333333333333333
+tariff_restructure,RL agent (PPO),Naive schedule,co2_kg,8.538270638223866,7.237571832933817,1.0
+tariff_restructure,Rule-based,Naive schedule,co2_kg,2.6554034264932747,6.115850183140487,0.6333333333333333
+low_renewables,RL agent (PPO),Naive schedule,co2_kg,5.304484217996452,2.7393266640732685,1.0
+low_renewables,Rule-based,Naive schedule,co2_kg,1.560652010173047,2.75481091460807,0.6666666666666666
+renewable_drop,RL agent (PPO),Naive schedule,co2_kg,8.239186009925458,5.616963359953553,1.0
+renewable_drop,Rule-based,Naive schedule,co2_kg,3.044424001809398,5.551972739681945,0.8
+production_surge,RL agent (PPO),Naive schedule,co2_kg,8.713709752650045,4.502396022447406,1.0
+production_surge,Rule-based,Naive schedule,co2_kg,4.974215106356928,5.492625556928711,0.8
+tight_deadlines,RL agent (PPO),Naive schedule,co2_kg,9.166301634728368,7.668730366726893,1.0
+tight_deadlines,Rule-based,Naive schedule,co2_kg,3.494256242505478,5.516954158111465,0.8
+combo_familiar,RL agent (PPO),Naive schedule,co2_kg,6.828794341908551,3.999908700856963,1.0
+combo_familiar,Rule-based,Naive schedule,co2_kg,1.565897746174294,2.9935954162169294,0.7333333333333333
+compound_shock,RL agent (PPO),Naive schedule,co2_kg,9.733923107023724,6.093230382261267,0.9666666666666667
+compound_shock,Rule-based,Naive schedule,co2_kg,3.7231611952308397,3.7943350359741737,0.7666666666666667
+unseen_industry,RL agent (PPO),Naive schedule,co2_kg,8.128686316587054,7.067594425529055,1.0
+unseen_industry,Rule-based,Naive schedule,co2_kg,2.0159457930836955,4.004498022676654,0.7666666666666667
+winter_season,RL agent (PPO),Naive schedule,co2_kg,6.274375910938968,3.806808783200039,1.0
+winter_season,Rule-based,Naive schedule,co2_kg,2.5275231025780664,3.553952682910205,0.7

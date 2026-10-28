@@ -1,0 +1,21 @@
+family,policy,baseline,metric,pct,pct_std,wins
+in_distribution,RL agent (PPO),Naive schedule,cost_eur,6.2977543718605755,11.31059811919843,0.8333333333333334
+in_distribution,Rule-based,Naive schedule,cost_eur,8.163409546343347,10.24345773432695,0.9333333333333333
+price_spike,RL agent (PPO),Naive schedule,cost_eur,20.858969498561553,9.42298476863124,1.0
+price_spike,Rule-based,Naive schedule,cost_eur,22.260414444391962,9.212224168298345,1.0
+tariff_restructure,RL agent (PPO),Naive schedule,cost_eur,17.064178805593176,10.483960823655776,0.9333333333333333
+tariff_restructure,Rule-based,Naive schedule,cost_eur,23.671996714928024,9.79251817075341,1.0
+low_renewables,RL agent (PPO),Naive schedule,cost_eur,5.1168852738283865,8.76984845135832,0.8333333333333334
+low_renewables,Rule-based,Naive schedule,cost_eur,9.109388305429523,8.692179711152242,1.0
+renewable_drop,RL agent (PPO),Naive schedule,cost_eur,8.22489278143439,8.765557858783318,0.9333333333333333
+renewable_drop,Rule-based,Naive schedule,cost_eur,8.470514526696803,8.495786594528315,0.9
+production_surge,RL agent (PPO),Naive schedule,cost_eur,5.405220478474215,3.5529419552671837,0.9666666666666667
+production_surge,Rule-based,Naive schedule,cost_eur,12.140499362630742,6.8841247415282005,1.0
+tight_deadlines,RL agent (PPO),Naive schedule,cost_eur,5.101518689011709,4.427507264034546,0.9
+tight_deadlines,Rule-based,Naive schedule,cost_eur,7.025302229291819,5.943432632418033,0.9
+combo_familiar,RL agent (PPO),Naive schedule,cost_eur,4.514822713655797,7.873277642653481,0.8666666666666667
+combo_familiar,Rule-based,Naive schedule,cost_eur,7.4973646120048425,5.889269050960988,1.0
+compound_shock,RL agent (PPO),Naive schedule,cost_eur,20.20276173073433,9.70882291738302,1.0
+compound_shock,Rule-based,Naive schedule,cost_eur,26.208486510928342,9.499669398888997,1.0
+winter_season,RL agent (PPO),Naive schedule,cost_eur,4.693478537688489,3.9752357234909925,0.8666666666666667
+winter_season,Rule-based,Naive schedule,cost_eur,9.292219491407682,5.0011130756867574,0.9333333333333333

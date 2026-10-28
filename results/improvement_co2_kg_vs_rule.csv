@@ -1,0 +1,23 @@
+family,policy,baseline,metric,pct,pct_std,wins
+in_distribution,Naive schedule,Rule-based,co2_kg,-3.707565396528434,10.206813741946313,0.3
+in_distribution,RL agent (PPO),Rule-based,co2_kg,6.700557338630098,6.1375774972315265,1.0
+price_spike,Naive schedule,Rule-based,co2_kg,-5.958674466972624,8.817812829245023,0.06666666666666667
+price_spike,RL agent (PPO),Rule-based,co2_kg,4.321638001983741,5.713121060705023,0.9
+tariff_restructure,Naive schedule,Rule-based,co2_kg,-2.727838544677841,7.405427584596682,0.36666666666666664
+tariff_restructure,RL agent (PPO),Rule-based,co2_kg,6.043342331064395,3.3278648821887504,1.0
+low_renewables,Naive schedule,Rule-based,co2_kg,-1.5853945013271753,2.9364991446398863,0.3333333333333333
+low_renewables,RL agent (PPO),Rule-based,co2_kg,3.8031867177851564,2.389494590215886,0.9
+renewable_drop,Naive schedule,Rule-based,co2_kg,-3.140019509415537,6.361639204943704,0.2
+renewable_drop,RL agent (PPO),Rule-based,co2_kg,5.357878548638617,4.576784934378693,0.9
+production_surge,Naive schedule,Rule-based,co2_kg,-5.234595127968977,6.347772851919513,0.2
+production_surge,RL agent (PPO),Rule-based,co2_kg,3.935242050858645,6.8737736372383615,0.8
+tight_deadlines,Naive schedule,Rule-based,co2_kg,-3.6207754134158776,5.942056937041524,0.2
+tight_deadlines,RL agent (PPO),Rule-based,co2_kg,5.877417417222275,7.261789280078132,0.9666666666666667
+combo_familiar,Naive schedule,Rule-based,co2_kg,-1.5908081755410475,3.1552784994630763,0.26666666666666666
+combo_familiar,RL agent (PPO),Rule-based,co2_kg,5.3466191850494615,3.150034258201656,1.0
+compound_shock,Naive schedule,Rule-based,co2_kg,-3.867141091722681,4.2609096474298855,0.23333333333333334
+compound_shock,RL agent (PPO),Rule-based,co2_kg,6.243206555609437,6.19712508686562,0.9
+unseen_industry,Naive schedule,Rule-based,co2_kg,-2.0574223116207824,4.655275377190036,0.23333333333333334
+unseen_industry,RL agent (PPO),Rule-based,co2_kg,6.238505410885398,6.3236367270826594,0.9666666666666667
+winter_season,Naive schedule,Rule-based,co2_kg,-2.593063378535021,3.8488215613395536,0.3
+winter_season,RL agent (PPO),Rule-based,co2_kg,3.8440110763821256,2.775485752329713,0.9666666666666667

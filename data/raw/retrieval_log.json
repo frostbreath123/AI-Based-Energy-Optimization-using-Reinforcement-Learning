@@ -1,0 +1,35 @@
+{
+  "ninja_pv": {
+    "retrieved": "2026-10-27",
+    "file": "pv_ninja_paris_2019.json"
+  },
+  "elmas": {
+    "retrieved": "unknown (cached)",
+    "file": "elmas/ELMAS_dataset/Time_series_18_clusters.csv"
+  },
+  "turpe": {
+    "retrieved": "2026-10-28",
+    "file": "tariff/CRE_2025-40_TURPE7_HTA-BT.pdf"
+  },
+  "prices": {
+    "retrieved": "2026-10-27",
+    "file": "prices_fr_2019.json"
+  },
+  "public_power": {
+    "retrieved": "2026-10-27",
+    "files": [
+      "public_power_fr_2019_01.json",
+      "public_power_fr_2019_02.json",
+      "public_power_fr_2019_03.json",
+      "public_power_fr_2019_04.json",
+      "public_power_fr_2019_05.json",
+      "public_power_fr_2019_06.json",
+      "public_power_fr_2019_07.json",
+      "public_power_fr_2019_08.json",
+      "public_power_fr_2019_09.json",
+      "public_power_fr_2019_10.json",
+      "public_power_fr_2019_11.json",
+      "public_power_fr_2019_12.json"
+    ]
+  }
+}

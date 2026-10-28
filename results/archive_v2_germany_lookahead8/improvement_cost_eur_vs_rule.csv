@@ -1,0 +1,21 @@
+family,policy,baseline,metric,pct,pct_std,wins
+in_distribution,Naive schedule,Rule-based,cost_eur,-8.889059911760167,23.579841559754286,0.06666666666666667
+in_distribution,RL agent (PPO),Rule-based,cost_eur,-2.0314943806894137,3.9813838854937953,0.2833333333333333
+price_spike,Naive schedule,Rule-based,cost_eur,-28.63459366974479,17.353594480445558,0.0
+price_spike,RL agent (PPO),Rule-based,cost_eur,-1.802743011574126,7.105334924050617,0.36666666666666664
+tariff_restructure,Naive schedule,Rule-based,cost_eur,-31.0135149566499,17.08186043224399,0.0
+tariff_restructure,RL agent (PPO),Rule-based,cost_eur,-8.6571345049546,6.51000870605723,0.06666666666666667
+low_renewables,Naive schedule,Rule-based,cost_eur,-10.022364395610817,13.389956123152261,0.0
+low_renewables,RL agent (PPO),Rule-based,cost_eur,-4.3926462339340056,3.5829834984598485,0.13333333333333333
+renewable_drop,Naive schedule,Rule-based,cost_eur,-9.254410732121343,13.299883086458847,0.1
+renewable_drop,RL agent (PPO),Rule-based,cost_eur,-0.2683525904164208,5.0800461361190035,0.5
+production_surge,Naive schedule,Rule-based,cost_eur,-13.818083729771423,10.157086961711055,0.0
+production_surge,RL agent (PPO),Rule-based,cost_eur,-7.665965359802884,9.443541303821174,0.16666666666666666
+tight_deadlines,Naive schedule,Rule-based,cost_eur,-7.556144195937531,7.137873170208091,0.1
+tight_deadlines,RL agent (PPO),Rule-based,cost_eur,-2.069147398601401,3.6432942739085896,0.3333333333333333
+combo_familiar,Naive schedule,Rule-based,cost_eur,-8.10502812223428,7.81779291461097,0.0
+combo_familiar,RL agent (PPO),Rule-based,cost_eur,-3.224277757967653,4.115358568261908,0.13333333333333333
+compound_shock,Naive schedule,Rule-based,cost_eur,-35.51693856341591,21.517086855330227,0.0
+compound_shock,RL agent (PPO),Rule-based,cost_eur,-8.13877436066337,7.305884243101798,0.1
+winter_season,Naive schedule,Rule-based,cost_eur,-10.244126181135549,6.018263181568199,0.06666666666666667
+winter_season,RL agent (PPO),Rule-based,cost_eur,-5.06984177976173,5.081710246800345,0.16666666666666666

@@ -1,0 +1,9 @@
+{
+  "rows_raw_aligned": 8760,
+  "rows_final": 8640,
+  "days_final": 360,
+  "price_eur_kwh_min": -0.02492,
+  "price_eur_kwh_max": 0.12146,
+  "carbon_g_kwh_mean": 54.017135122940175,
+  "pv_cf_mean": 0.14091643518518518
+}

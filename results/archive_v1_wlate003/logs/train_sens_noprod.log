@@ -1,0 +1,9 @@
+  [val @ 50000] reward -36.48 cost saving 57.4% co2 63.2% completion 0.205
+  [val @ 100000] reward -42.15 cost saving 71.9% co2 74.7% completion 0.011
+  [val @ 150000] reward -42.28 cost saving 72.7% co2 74.2% completion 0.000
+  [val @ 200000] reward -42.24 cost saving 73.3% co2 74.5% completion 0.000
+  [val @ 250000] reward -42.25 cost saving 73.2% co2 74.7% completion 0.000
+  [val @ 300000] reward -42.11 cost saving 73.5% co2 74.6% completion 0.000
+  [val @ 350000] reward -42.17 cost saving 73.3% co2 75.0% completion 0.000
+  [val @ 400000] reward -42.32 cost saving 72.9% co2 74.5% completion 0.000
+[train] sens_no_production_penalty seed 0: 642s -> C:\Users\Admin\Desktop\APPLIED_AI\models\sens_no_production_penalty_seed0

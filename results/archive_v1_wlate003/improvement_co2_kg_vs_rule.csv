@@ -1,0 +1,21 @@
+family,policy,baseline,metric,pct,pct_std,wins
+in_distribution,Naive schedule,Rule-based,co2_kg,-4.373463181000825,24.975055264133953,0.25
+in_distribution,RL agent (PPO),Rule-based,co2_kg,7.563937408281019,6.195753198111007,0.95
+price_spike,Naive schedule,Rule-based,co2_kg,-9.45187536836032,14.109290423291935,0.03333333333333333
+price_spike,RL agent (PPO),Rule-based,co2_kg,5.074746529580986,4.3880259479664065,0.8333333333333334
+tariff_restructure,Naive schedule,Rule-based,co2_kg,-14.7890843198077,13.969402561921104,0.03333333333333333
+tariff_restructure,RL agent (PPO),Rule-based,co2_kg,2.695191691002574,4.247950866253925,0.8
+low_renewables,Naive schedule,Rule-based,co2_kg,-0.16928017321919953,13.162991359471778,0.5
+low_renewables,RL agent (PPO),Rule-based,co2_kg,7.60340469791606,6.262814292060113,0.7333333333333333
+renewable_drop,Naive schedule,Rule-based,co2_kg,-6.834057509090918,11.153672668626417,0.13333333333333333
+renewable_drop,RL agent (PPO),Rule-based,co2_kg,4.610957021536266,4.949648917835065,0.7333333333333333
+production_surge,Naive schedule,Rule-based,co2_kg,-10.855397483824113,10.260155347563824,0.1
+production_surge,RL agent (PPO),Rule-based,co2_kg,-1.371539928503629,8.429537850705591,0.43333333333333335
+tight_deadlines,Naive schedule,Rule-based,co2_kg,-3.951358526109283,7.557508291425441,0.23333333333333334
+tight_deadlines,RL agent (PPO),Rule-based,co2_kg,9.595035212947645,6.60452058195314,0.9666666666666667
+combo_familiar,Naive schedule,Rule-based,co2_kg,-1.5865870623352762,18.28145022074522,0.4
+combo_familiar,RL agent (PPO),Rule-based,co2_kg,7.252754819094919,5.372393553717332,0.9666666666666667
+compound_shock,Naive schedule,Rule-based,co2_kg,-6.8259180811745646,6.02805093931849,0.03333333333333333
+compound_shock,RL agent (PPO),Rule-based,co2_kg,5.585326882537034,4.455636796133625,0.9333333333333333
+winter_season,Naive schedule,Rule-based,co2_kg,-2.2584493126556415,3.808725364861152,0.23333333333333334
+winter_season,RL agent (PPO),Rule-based,co2_kg,2.987666408324452,3.6643737250449275,0.7666666666666667
